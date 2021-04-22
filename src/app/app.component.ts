@@ -1,7 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { MatTableDataSource } from '@angular/material/table';
-import { HttpClient } from '@angular/common/http';
 import { MatPaginator } from '@angular/material/paginator';
 
 @Component({
@@ -25,7 +24,7 @@ export class AppComponent {
   filterSelectObj = [];
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
-  constructor(private http: HttpClient) {
+  constructor() {
     this.filterSelectObj = [
       {
         name: 'ID',
@@ -189,8 +188,6 @@ export class AppComponent {
           delete searchTerms[col];
         }
       }
-
-      console.log(searchTerms);
 
       let nameSearch = () => {
         let found = false;
